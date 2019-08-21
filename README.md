@@ -8,7 +8,7 @@ links das atividades práticas
 
 [hands on 1 python com Matriz](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/handson1_Python_Matriz.ipynb)
 
-[hands on 1 matlab com laço FOR](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/handson_1_for.m)
+[hands on 1 matlab com laço FOR](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/handson_1_Matlab_For.ipynb)
 
 [hands on 1 matlab sem laço FOR](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/handson_1_matriz.m)
 
