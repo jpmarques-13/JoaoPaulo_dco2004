@@ -8,4 +8,6 @@ Esse teste de edição de README.md
 
 [hands on 1 python sem laço FOR](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/handson1_matricial.py)
 
+[hands on 1 matlab sem laço FOR](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/handson_1_for.m)
+
 ![exemplo de imagem](https://image.slidesharecdn.com/fourierseries-160329162813/95/fourier-series-4-638.jpg?cb=1459268902)
