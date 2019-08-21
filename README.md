@@ -10,4 +10,6 @@ links das atividades práticas
 
 [hands on 1 matlab com Matriz](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/handson_1_Matlab_For.ipynb)
 
+[Relatório handson 1](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Relat%C3%B3rio.ipynb)
+
 ![exemplo de imagem](https://image.slidesharecdn.com/fourierseries-160329162813/95/fourier-series-4-638.jpg?cb=1459268902)
