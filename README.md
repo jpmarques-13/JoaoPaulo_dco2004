@@ -12,4 +12,8 @@ links das atividades práticas
 
 [Relatório handson 1](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Relat%C3%B3rio.ipynb)
 
+
+[Handson 2 Python](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica2/handson_2_python.ipynb)
+
+
 ![exemplo de imagem](https://image.slidesharecdn.com/fourierseries-160329162813/95/fourier-series-4-638.jpg?cb=1459268902)
