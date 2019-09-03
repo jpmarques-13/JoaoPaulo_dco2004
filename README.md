@@ -2,7 +2,7 @@
 ## hands on
 links das atividades práticas
 
-[hands on 0] (https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Hands-on%2000.ipynb)
+[hands on 0](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Hands-on%2000.ipynb)
 
 [hands on 1 python com laço FOR](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/handson_1_Python_For.ipynb)
 
