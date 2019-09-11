@@ -32,6 +32,10 @@ Relatorio referente ao Passo 08 prática 01 e passo 03 prática 02.
 [Handson 2 MATLAB](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica2/handson_2_matlab.ipynb)
 
 ## hands on 3
+
+Plote do espectro dos arquivos Violino.wav e Flauta.wav
+
+
 [Handson 3](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica3/Handson3.ipynb)
 
 
