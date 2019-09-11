@@ -6,6 +6,7 @@ links das atividades práticas
 Construção do arquivo Pratica01.ipynb, como especificado em Hands-on 00: Básico do Jupyter Notebook: Instalação e prática, e seu armazenamento no seu respositório do Github (add, commit e push).
 
 Construção do arquivo testMatlab.ipynb, como especificado em Hands-on 00: Jupyter Notebook para Matlab: Instalação de Kernel, e seu armazenamento no seu respositório do Github (add, commit e push).
+
 [hands on 0](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Hands-on%2000.ipynb)
 
 ### hands on 1
@@ -32,3 +33,5 @@ Relatorio referente ao Passo 08 prática 01 e passo 03 prática 02.
 
 
 ![exemplo de imagem](https://image.slidesharecdn.com/fourierseries-160329162813/95/fourier-series-4-638.jpg?cb=1459268902)
+
+## hands on 3 
