@@ -36,6 +36,10 @@ Relatorio referente ao Passo 08 prática 01 e passo 03 prática 02.
 
 
 ## hands on 4
+Cálculo de potência média
+
+[Handson 4](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica4/Entrega_h04.ipynb)
+
 
 
 ![exemplo de imagem](https://image.slidesharecdn.com/fourierseries-160329162813/95/fourier-series-4-638.jpg?cb=1459268902)
