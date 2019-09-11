@@ -31,7 +31,14 @@ Relatorio referente ao Passo 08 prática 01 e passo 03 prática 02.
 
 [Handson 2 MATLAB](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica2/handson_2_matlab.ipynb)
 
+## hands on 3
+[Handson 3](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica3/Handson3.ipynb)
+
+
+## hands on 4
+
 
 ![exemplo de imagem](https://image.slidesharecdn.com/fourierseries-160329162813/95/fourier-series-4-638.jpg?cb=1459268902)
 
-## hands on 3 
+
+
