@@ -1,6 +1,5 @@
 # Repositório para disciplina Laboratório de prototipagem
-## hands on
-links das atividades práticas
+
 
 ### hands on 0
 Construção do arquivo Pratica01.ipynb, como especificado em Hands-on 00: Básico do Jupyter Notebook: Instalação e prática, e seu armazenamento no seu respositório do Github (add, commit e push).
