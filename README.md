@@ -3,10 +3,11 @@
 
 ### hands on 0
 Construção do arquivo Pratica01.ipynb, como especificado em Hands-on 00: Básico do Jupyter Notebook: Instalação e prática, e seu armazenamento no seu respositório do Github (add, commit e push).
-
 Construção do arquivo testMatlab.ipynb, como especificado em Hands-on 00: Jupyter Notebook para Matlab: Instalação de Kernel, e seu armazenamento no seu respositório do Github (add, commit e push).
 
 [Pratica 1](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica1/pratica1.ipynb)
+
+
 [teste matlab](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica1/test_matlab.ipynb)
 
 ### hands on 1
@@ -42,6 +43,8 @@ Plote do espectro dos arquivos Violino.wav e Flauta.wav
 
 ## hands on 4
 Cálculo de potência média
+
+função periodogram
 
 [Handson 4](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica4/handson4.ipynb)
 
