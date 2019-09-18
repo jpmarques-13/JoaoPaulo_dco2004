@@ -41,9 +41,10 @@ Plote do espectro dos arquivos Violino.wav e Flauta.wav
 ## hands on 4
 Cálculo de potência média
 
-[Handson 4](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica4/Entrega_h04.ipynb)
+[Handson 4](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica4/handson4.ipynb)
 
-
+## hands on 5
+[Handson 5](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/pratica5/handson5.ipynb)
 
 ![exemplo de imagem](https://image.slidesharecdn.com/fourierseries-160329162813/95/fourier-series-4-638.jpg?cb=1459268902)
 
