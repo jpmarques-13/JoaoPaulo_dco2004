@@ -1,13 +1,25 @@
 import numpy as np
 import scipy.io
 from matplotlib import pyplot as plt
+import scipy.fftpack as ff
 
 # Como visto anteriormente, para economizar linhas de código, uma boa prática é resumir a conversão
 # binário/decimal em duas funções:
 
+def quantizacao(sinal,n):
+    L = 2**n
+    sig_max = max(sinal)
+    sig_min = min(sinal)
+    Delta=(sig_max-sig_min)/L                       # Intervalo de quantização (distância entre um nível e outro)
+    q_level=np.arange(sig_min+Delta/2,sig_max,Delta) # Vetor com as amplitudes dos Q níveis (Ex: nível 4 -- q_level(4)= -0.05V)
+    print(sig_max)
+    sigp=sinal-sig_min                                 # Deixa o sinal somente com amplitudes positivas (shift para cima)
+    # Calcula a quantidade de nívels (não inteiro ainda) de cada amostra (elementos >= 0)
+    sigp //= Delta
 
-
-
+    qindex = sigp.astype(int)     #Forçamos o tipo do array como int para usar seus valores como índices
+    qindex[qindex >= L] = L-1   #Trunca o excedente de qindex
+    return qindex
 
 def de2bi(sinal):
     from numpy import fromiter,binary_repr,round
@@ -26,49 +38,43 @@ mat = scipy.io.loadmat('Pacientes.mat')
 
 fs = mat['Fs'][0][0]
 ts = 1/fs
-sinal_1 = mat['sinal_1'][0]
-sinal_2 = mat['sinal_2'][0]
-sinal_3 = mat['sinal_3'][0]
-sinal_4 = mat['sinal_4'][0]
-sinal_5 = mat['sinal_5'][0]
+sinal_1 = mat['sinal_1'].flatten()
+sinal_2 = mat['sinal_2'].flatten()
+sinal_3 = mat['sinal_3'].flatten()
+sinal_4 = mat['sinal_4'].flatten()
+sinal_5 = mat['sinal_5'].flatten()
 Tf = ts*len(sinal_1)
 t= np.arange(0,Tf,ts)
+sinal_1_quant = quantizacao(sinal_1,8)
+sinal_2_quant = quantizacao(sinal_2,8)
+sinal_3_quant = quantizacao(sinal_3,8)
+sinal_4_quant = quantizacao(sinal_4,8)
+sinal_5_quant = quantizacao(sinal_5,8)
 
-sig_quan01= sinal_1-np.min(sinal_1)+1      # Todos elementos positivos
-sig_quan01= np.round(sig_quan01)           # Transforma sinal em números inteiros
-sig_code01= de2bi(sig_quan01)              # Transforma em sinal binário
-
-sig_quan02= sinal_2-np.min(sinal_2)+1      # Todos elementos positivos
-sig_quan02= np.round(sig_quan02)           # Transforma sinal em números inteiros
-sig_code02= de2bi(sig_quan02)              # Transforma em sinal binário
-
-sig_quan03= sinal_3-np.min(sinal_3)+1      # Todos elementos positivos
-sig_quan03= np.round(sig_quan03)           # Transforma sinal em números inteiros
-sig_code03= de2bi(sig_quan03)              # Transforma em sinal binário
-
-sig_quan04= sinal_4-np.min(sinal_4)+1      # Todos elementos positivos
-sig_quan04= np.round(sig_quan04)           # Transforma sinal em números inteiros
-sig_code04= de2bi(sig_quan04)              # Transforma em sinal binário
-
-sig_quan05= sinal_5-np.min(sinal_5)+1      # Todos elementos positivos
-sig_quan05= np.round(sig_quan05)           # Transforma sinal em números inteiros
-sig_code05= de2bi(sig_quan05)              # Transforma em sinal binário
+sinal_1_quant = de2bi(sinal_1_quant)
+sinal_2_quant = de2bi(sinal_2)
+sinal_3_quant = de2bi(sinal_3)
+sinal_4_quant = de2bi(sinal_4)
+sinal_5_quant = de2bi(sinal_5)
 
 frameSize = 5;                            # Tamanho do quadro (número máximo de sinais a serem multiplexados)
-mux_sig = np.zeros(len(sig_code01)*frameSize,dtype=int)
+mux_sig = np.zeros(len(sinal_1_quant)*frameSize,dtype=int)
 
-for i in range(1,len(sig_code01)+1):
-    mux_sig[5*(i-1)]      =   sig_code01[i-1]  # Indexação em python começa em 0
-    mux_sig[5*(i-1)+1]    =   sig_code02[i-1]
-    mux_sig[5*(i-1)+2]    =   sig_code03[i-1]
-    mux_sig[5*(i-1)+3]    =   sig_code04[i-1]
-    mux_sig[5*(i-1)+4]    =   sig_code05[i-1]
-demux_01 = np.zeros(len(sig_code01),dtype=int)
-demux_02 = np.zeros(len(sig_code01),dtype=int)
-demux_03 = np.zeros(len(sig_code01),dtype=int)
-demux_04 = np.zeros(len(sig_code01),dtype=int)
-demux_05 = np.zeros(len(sig_code01),dtype=int)
-for i in range(1,len(sig_code01)):
+for i in range(1,len(sinal_1_quant)+1):
+    mux_sig[5*(i-1)]      =   sinal_1_quant[i-1]  # Indexação em python começa em 0
+    mux_sig[5*(i-1)+1]    =   sinal_2_quant[i-1]
+    mux_sig[5*(i-1)+2]    =   sinal_3_quant[i-1]
+    mux_sig[5*(i-1)+3]    =   sinal_4_quant[i-1]
+    mux_sig[5*(i-1)+4]    =   sinal_5_quant[i-1]
+
+####  FIM DA MULTIPLEXACAO
+####  DEMULTIPLEXACAO
+demux_01 = np.zeros(len(sinal_1_quant),dtype=int)
+demux_02 = np.zeros(len(sinal_1_quant),dtype=int)
+demux_03 = np.zeros(len(sinal_1_quant),dtype=int)
+demux_04 = np.zeros(len(sinal_1_quant),dtype=int)
+demux_05 = np.zeros(len(sinal_1_quant),dtype=int)
+for i in range(1,len(sinal_1_quant)):
     demux_01[i-1]= mux_sig[(i-1)*5 ]
     demux_02[i-1]= mux_sig[(i-1)*5 + 2]
     demux_03[i-1]= mux_sig[(i-1)*5 + 3]
@@ -79,20 +85,21 @@ sig_rec02 = bi2de(demux_02)
 sig_rec03 = bi2de(demux_03)
 sig_rec04 = bi2de(demux_04)
 sig_rec05 = bi2de(demux_05)
-
-# Quantização
-sig_max=max(sig_quan01)                                  # Encontra pico máximo
-sig_min=min(sig_quan01)
-n = 8;                                              # Número de bits por nível
-L= 2**n;                                            # Níveis de quantização
-Delta=(sig_max-sig_min)/L                           # Intervalo de quantização (distância entre um nível e outro)
-q_level=np.arange(sig_min+Delta/2,sig_max,Delta)    # Vetor com as amplitudes dos Q níveis
-qindex = sig_quan01.astype(int)                  # Casting para inteiro (garantindo que é do tipo inteiro)
-q_out=q_level[abs(qindex-1)]
-print(len(sig_quan01))
-print(len(sinal_1))
 plt.figure(1,[9,9])
-plt.subplot(211)
-plt.plot(t,sinal_1,t,sig_quan01)
+plt.subplot(511)
+plt.plot(t,(sig_rec01-max(sig_rec01)/2)/128,t,sinal_1)
 plt.title("Sinal Original vs Sinal Amostrado e Quantizado")
+plt.subplot(512)
+plt.plot(t,(sig_rec02-max(sig_rec02)/2)/128,t,sinal_2)
+plt.title("Sinal Original vs Sinal Amostrado e Quantizado")
+plt.subplot(513)
+plt.plot(t,(sig_rec03-max(sig_rec03)/2)/128,t,sinal_3)
+plt.title("Sinal Original vs Sinal Amostrado e Quantizado")
+plt.subplot(514)
+plt.plot(t,(sig_rec04-max(sig_rec04)/2)/128,t,sinal_4)
+plt.title("Sinal Original vs Sinal Amostrado e Quantizado")
+plt.subplot(515)
+plt.plot(t,(sig_rec05-max(sig_rec05)/2)/128,t,sinal_5)
+plt.title("Sinal Original vs Sinal Amostrado e Quantizado")
+
 plt.show()
