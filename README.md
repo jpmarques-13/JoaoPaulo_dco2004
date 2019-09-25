@@ -51,6 +51,9 @@ função periodogram
 ## hands on 5
 [Handson 5](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/pratica5/handson5.ipynb)
 
+## hands on 6
+[Handson 6](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/pratica6/Entrega_h06.ipynb)
+
 ### Notas importantes
 
 #### Adcionando venv kernel ao jupyter
