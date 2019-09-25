@@ -51,7 +51,15 @@ função periodogram
 ## hands on 5
 [Handson 5](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/pratica5/handson5.ipynb)
 
-![exemplo de imagem](https://image.slidesharecdn.com/fourierseries-160329162813/95/fourier-series-4-638.jpg?cb=1459268902)
+### Notas importantes
+
+#### Adcionando venv kernel ao jupyter
+
+to add a venv kernel in jupyter notebook :
+first install ipykernel 
+pip install ipykernel
+then add myenv to jupyter kernel
+python -m ipykernel install --user --name=myenv
 
 
 
