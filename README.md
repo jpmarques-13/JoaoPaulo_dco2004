@@ -56,9 +56,13 @@ função periodogram
 #### Adcionando venv kernel ao jupyter
 
 to add a venv kernel in jupyter notebook :
+
 first install ipykernel 
+
 pip install ipykernel
+
 then add myenv to jupyter kernel
+
 python -m ipykernel install --user --name=myenv
 
 
