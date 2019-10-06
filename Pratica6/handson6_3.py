@@ -22,24 +22,25 @@ freq = mat['freq']
 L = [8, 32, 128]
 sig_max=max(m_t[0])                                     # Encontra pico máximo
 sig_min=min(m_t[0])
+M_f=np.abs(np.fft.fft(m_t[0])/(len(m_t[0])))
 plt.figure(1,[10,15])
 for il in range(0,len(L)):
     Li = L[il]
     Delta=(sig_max-sig_min)/Li                       # Intervalo de quantização (distância entre um nível e outro)
     q_level=np.arange(sig_min+Delta/2,sig_max,Delta) # Vetor com as amplitudes dos Q níveis (Ex: nível 4 -- q_level(4)= -0.05V)
-
     sigp=m_t[0]-sig_min                                 # Deixa o sinal somente com amplitudes positivas (shift para cima)
     # Calcula a quantidade de nívels (não inteiro ainda) de cada amostra (elementos >= 0)
     sigp //= Delta
-
     qindex = sigp.astype(int)     #Forçamos o tipo do array como int para usar seus valores como índices
     qindex[qindex >= Li] = Li-1   #Trunca o excedente de qindex
     q_out = q_level[qindex] #Distribui os níveis de cada elemento
-
+    M_F = np.abs(np.fft.fft(m_t[0]-q_out)/(len(m_t[0]-q_out)))
+    erro = sum(M_F)
+    #print(erro)
     ## Plotting
     plt.subplot('{}1{}'.format(len(L),il+1))
     plt.plot(t[0],q_out,t[0],(m_t[0]-q_out))
-    plt.title('Quantização L = {} níveis'.format(Li))
+    plt.title('Quantização L = {} níveis  {}'.format(Li,erro))
     plt.legend(["Quantizado", "Erro de Quantização"])
 
 plt.show()
