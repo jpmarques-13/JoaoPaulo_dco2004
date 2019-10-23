@@ -17,13 +17,13 @@ for ik = 1:length(vtnSamples)
     vtCurrentS = vtSamples(1:nSamples);
     vtBins = min(vtCurrentS):binWidth:max(vtCurrentS);
     [y,x] = hist(vtCurrentS ,vtBins);
-    plot(x,y/(binWidth*nSamples));
+    bar(x,y/(binWidth*nSamples));
     hold all;
     % Pode ser feito também com
     % histogram(vtSamples(1:nSamples),'Normalization','pdf');
     %
     % PDF real
     vtPDF=normpdf(x,mu,sigma);
-    plot(x,vtPDF);
+    bar(x,vtPDF);
     legend(['PDF Estimada = ' num2str(nSamples) ' amostras'],'PDF Real');
 end

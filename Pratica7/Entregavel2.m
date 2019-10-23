@@ -1,5 +1,6 @@
-clc;clear all; close all;
+
 %% Parte 1 Distribuicao NORMAL
+clc;clear all; close all;
 mu = 5000;                                                 % Média
 sigma = 40;                                            % Desvio padrâo
 T=0.001;                                                % Taxa de amostragem
@@ -7,7 +8,7 @@ x=4800:T:5200;                                               % Eixo x
 % Distribuição
 DistNorm=normpdf(x,mu,sigma);                           % Distribuição normal    
 % Estimação da probabilidade
-indices = min(find(x<=5038)):max(find(x>=5038)); % Encontra o local que se deseja estimar
+indices = min(find(x>=5038)):max(find(x>=5038)); % Encontra o local que se deseja estimar
 prob1=sum(DistNorm(indices))*T*100;                     % Probabilidade de um evento ocorrer no intervalo
 plot(x,DistNorm);                                       
 title([ 'Probabilidade de =  ' num2str(prob1)  ]);      % Mostra valor verdadeiro de prob1

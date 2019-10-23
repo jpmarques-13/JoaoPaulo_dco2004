@@ -18,8 +18,8 @@ for ik = 1:length(vtnSamples)
         end
     end
     
-    plot(vtBins,histo/(nSamples));
-    hold all;
+
+
     % Pode ser feito também com
     % histogram(vtSamples(1:nSamples),'Normalization','pdf');
     %
@@ -27,6 +27,8 @@ for ik = 1:length(vtnSamples)
     %vtPDF=normpdf(x,mu,sigma);
     y=zeros(length(vtBins),1);
     y=y+ 1/6;
-    plot(vtBins,y);
+    bar(vtBins,y);
     legend(['PDF Estimada = ' num2str(nSamples) ' amostras'],'PDF Real');
+    hold all;
+    bar(vtBins,histo/(nSamples),0.6,'red');
 end

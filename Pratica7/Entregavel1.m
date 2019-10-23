@@ -3,7 +3,7 @@ clc ; clear ; close all;
 %% LOGNORMAL DISTRIBUTION
 
 x = (0:0.1:12500)';
-Var=[1 5 10]
+Var=[1 5 10];
 figure
 chLegend = [];
 for i=Var
@@ -25,7 +25,8 @@ title('pdf LogNormal')
 legend(chLegend);
 
 %% RAYLEIGH DISTRIBUTION
-
+clc;
+clear;
 x = [-20:0.01:60];
 MLE=[1 5 10]
 figure
@@ -49,6 +50,8 @@ title('pdf Rayleigh')
 legend(chLegend);
 
 %% RICIAN DISTRIBUTION
+clc;
+clear;
 
 sigma = [1 5 10]
 Noncentrally = [0 5 10]
@@ -58,7 +61,7 @@ chLegend = [];
 chLegend1 = [];
 for i=sigma
     pd = makedist('Rician','s',0,'sigma',i)
-    x = (0:0.1:50)';
+    x = (0:0.1:50);
     y = pdf(pd,x);
     y1 = cdf(pd,x);
     subplot(2,2,1)
@@ -98,7 +101,8 @@ title('cdf Rician')
 legend(chLegend1);
 
 %% Nakagami Distribution
-
+clc;
+clear;
 
 sigma = [1 5 10]
 
@@ -125,7 +129,7 @@ for i=sigma
     subplot(2,2,3)
     plot(x,y)
     hold on
-    chLegend = [chLegend; {['sigma =  ' num2str(1)]}];
+    chLegend1 = [chLegend1; {['sigma1 =  ' num2str(1)]}];
     subplot(2,2,4)
     plot(x,y1)
     hold on
@@ -136,10 +140,18 @@ title('pdf Nakagami')
 legend(chLegend);
 subplot(2,2,2);
 title('cdf Nakagami')
+legend(chLegend);
+subplot(2,2,3);
+title('pdf Nakagami')
+legend(chLegend1);
+subplot(2,2,4);
+title('cdf Nakagami')
 legend(chLegend1);
 
-%% Weilbull Distribution
 
+%% Weilbull Distribution
+clc;
+clear;
 
 
 sigma = [1 5 10]
@@ -167,7 +179,7 @@ for i=sigma
     subplot(2,2,3)
     plot(x,y)
     hold on
- 
+    chLegend1 = [chLegend1; {['b =  ' num2str(i)]}];
     subplot(2,2,4)
     plot(x,y1)
     hold on
@@ -178,28 +190,41 @@ title('pdf weilbull')
 legend(chLegend);
 subplot(2,2,2);
 title('cdf weilbull')
+legend(chLegend);
+subplot(2,2,3);
+title('pdf weilbull')
+legend(chLegend1);
+subplot(2,2,4);
+title('cdf weilbull')
 legend(chLegend1);
 
-
 %% exponencial distribution
-sigma = [1 5 10]
+clc;
+clear;
+
+
+lambda = [2/5 1];
 
 figure
 chLegend = [];
-for i=sigma
-    pd = makedist('Exponential','mu',i)
+for ik=lambda
+    pd = makedist('Exponential','mu',ik)
     x = (0:0.1:50)';
     y = pdf(pd,x);
     y1 = cdf(pd,x);
-    subplot(2,2,1)
+    subplot(2,1,1)
+    hold on
     plot(x,y)
+    chLegend = [chLegend; {['lambda = ' num2str(ik)]}];
+    subplot(2,1,2)
     hold on
-    chLegend = [chLegend; {['mu =  ' num2str(i)]}];
-    subplot(2,2,2)
     plot(x,y1)
-    hold on
-    chLegend1 = [chLegend; {['Noncentrality =  ' num2str(0)]}];end
-subplot(2,2,1);
+    chLegend = [chLegend; {['lambda = ' num2str(ik)]}];
+
+end
+subplot(2,1,1);
 title('pdf Exponencial')
 legend(chLegend);
-subplot(2,2,2);
+subplot(2,1,2);
+title('cdf Exponencial')
+legend(chLegend);
