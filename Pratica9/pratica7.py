@@ -100,8 +100,8 @@ for ik in range(len(vtEbN0Sim_db)):
     vtSimErrorAnti[ik]= SiAntipodal(vtEbN0Sim_db[ik], nMCSamples)
     vtSimErrorOrto[ik]= SiOrtogonal(vtEbN0Sim_db[ik], nMCSamples)
 
-vtTeoErrorAnti = (1/2)*special.erfc(np.sqrt(2*vtEbN0Teo/np.sqrt(2)))
-vtTeoErrorOrto = (1/2)*special.erfc(np.sqrt(vtEbN0Teo/np.sqrt(2)))
+vtTeoErrorAnti = (1/2)*special.erfc(np.sqrt(2*vtEbN0Teo/2))
+vtTeoErrorOrto = (1/2)*special.erfc(np.sqrt(vtEbN0Teo/2))
 plt.semilogy(vtEbN0Sim_db,vtSimErrorAnti,'s',vtEbN0Sim_db,vtSimErrorOrto,'d')
 plt.semilogy(vtEbN0Teo_dB,vtTeoErrorAnti,vtEbN0Teo_dB,vtTeoErrorOrto)
 plt.legend(['BER antipodal','BER ortogonal','pe Antipodal','pe Ortogonal'])

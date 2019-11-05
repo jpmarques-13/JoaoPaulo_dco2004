@@ -48,14 +48,14 @@ def SiOrtogonal(Ebn0_dB,nMCSamples):
 
     return nErrors/nMCSamples
 
-vtEbNoSim = np.arange(0,15,1)                  # Valores de Eb/No a serem simulados (dB)
-vtEbNoTeo = np.arange(-1,15,0.1)               # Valores de Eb/No para a curva teórica (dB)
+vtEbNoSim = np.arange(-2,13,1)                  # Valores de Eb/No a serem simulados (dB)
+vtEbNoTeo = np.arange(-2,12.1,0.1)               # Valores de Eb/No para a curva teórica (dB)
 vtnMCSamples = [10,100,5000,100000]
 vtSimError=np.zeros(len(vtEbNoSim))
 vtMarkers = np.array(['s','o','d','*','<'])
 
-vtEbN0_dB = np.arange(-2,12,0.5)
-vtEbN0 = 10**(vtEbN0_dB/10)
+#vtEbN0_dB = np.arange(-2,12.5,0.5)
+vtEbN0 = 10**(vtEbNoTeo/10)
 vtPe = (1/2)*special.erfc(np.sqrt(vtEbN0/np.sqrt(2)))
 
 for i in range(len(vtnMCSamples)):
@@ -65,9 +65,9 @@ for i in range(len(vtnMCSamples)):
     plt.semilogy(vtEbNoSim,vtSimError,vtMarkers[i])
     #plt.semilogy(vtEbN0_dB,vtPe)
     #plt.show()
-vtEbN0_dB = np.arange(-2,12,0.5)
-vtEbN0 = 10**(vtEbN0_dB/10)
-vtPe = (1/2)*special.erfc(np.sqrt(vtEbN0/np.sqrt(2)))
-plt.semilogy(vtEbN0_dB,vtPe)
+#vtEbN0_dB = np.arange(-2,12,0.5)
+vtEbN0 = 10**(vtEbNoTeo/10)
+vtPe = (1/2)*special.erfc(np.sqrt(vtEbN0/2))
+plt.semilogy(vtEbNoTeo,vtPe)
 plt.legend(['BER simulada com 10 amostras','BER simulada com 100 amostras','BER simulada com 5000 amostras','BER simulada com 100000 amostras','teorico - Pe'])
 plt.show()
