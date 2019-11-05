@@ -16,5 +16,7 @@ for i in range(len(vtEBN0_dB)):
     x = np.arange(-5*dstd-Eb,5*dstd+Eb,0.001)
     vtr0 = norm.pdf(x,Er0,dstd)
     vtr1 = norm.pdf(x,Er1,dstd)
+    plt.subplot(len(vtVar),1,i+1)
     plt.plot(x,vtr0,x,vtr1)
-    plt.show()
+    plt.legend(['p(r1|s0)','p(r0|rs0)'])
+plt.show()

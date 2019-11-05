@@ -14,5 +14,7 @@ for ik in range(len(vtEbN0_dB)):
     ## Cálculo da distribuicao Gaussiana
     rv1 = norm.pdf(x,Er0,dStd)
     rv2 = norm.pdf(x,Er1,dStd)
+    plt.subplot(len(vtVar),1,ik+1)
     plt.plot(x,rv1,x,rv2)
-    plt.show()
+    plt.legend(['p(r1|s0)','p(r0|rs0)'])
+plt.show()

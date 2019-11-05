@@ -90,9 +90,9 @@ def SiAntipodal(EbN0_dB,nMCSamples):
 
     return nErrors/nMCSamples
 
-nMCSamples = 10000000
-vtEbN0Sim_db = np.arange(0,12,1)
-vtEbN0Teo_dB = np.arange(0,12,0.1)
+nMCSamples = 100000
+vtEbN0Sim_db = np.arange(0,13,1)
+vtEbN0Teo_dB = np.arange(0,12.1,0.1)
 vtEbN0Teo = 10**(vtEbN0Teo_dB/10)
 vtSimErrorAnti = np.zeros(len(vtEbN0Sim_db))
 vtSimErrorOrto = np.zeros(len(vtEbN0Sim_db))
@@ -102,6 +102,7 @@ for ik in range(len(vtEbN0Sim_db)):
 
 vtTeoErrorAnti = (1/2)*special.erfc(np.sqrt(2*vtEbN0Teo/np.sqrt(2)))
 vtTeoErrorOrto = (1/2)*special.erfc(np.sqrt(vtEbN0Teo/np.sqrt(2)))
-plt.semilogy(vtEbN0Sim_db,vtSimErrorAnti,'x',vtEbN0Sim_db,vtSimErrorOrto,'o')
-plt.semilogy(vtEbN0Teo_dB,vtTeoErrorOrto,vtEbN0Teo_dB,vtTeoErrorAnti)
+plt.semilogy(vtEbN0Sim_db,vtSimErrorAnti,'s',vtEbN0Sim_db,vtSimErrorOrto,'d')
+plt.semilogy(vtEbN0Teo_dB,vtTeoErrorAnti,vtEbN0Teo_dB,vtTeoErrorOrto)
+plt.legend(['BER antipodal','BER ortogonal','pe Antipodal','pe Ortogonal'])
 plt.show()
