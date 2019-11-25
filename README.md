@@ -55,10 +55,16 @@ função periodogram
 [Handson 6](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica6/Entrega_h06.ipynb)
 
 ## hands on 7
-[Handson 6](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica6/Entrega_h06.ipynb)
+[Handson 7](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica7/Entrega_h07.ipynb)
 
 ## hands on 8
-[Handson 6](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica6/Entrega_h06.ipynb)
+[Handson 8](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica8/Entrega_08%20(copy).ipynb)
+## hands on 9
+[Handson 9](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica9/H9.ipynb)
+## hands on 10
+[Handson 10](https://github.com/jpmarques-13/JoaoPaulo_dco2004/blob/master/Pratica10/HandsOn10.ipynb)
+## hands on 11
+[Handson 11](https://github.com/jpmarques-13/JoaoPaulo_dco2004/tree/master/Pratica11)
 
 ### Notas importantes
 
